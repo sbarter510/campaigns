@@ -6,13 +6,21 @@ import "materialize-css/dist/css/materialize.min.css";
 //compoenents
 import Header from "./components/Header/Header";
 import Index from "./components/Index/Index";
+import Business from "./components/Business/Business";
 
-//picture
-import moon from "./static/moon.jpg";
+//React Router Dom elements
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  withRouter,
+} from "react-router-dom";
 
 const initialState = {
   darkMode: false,
   signedIn: false,
+  businessUser: false,
+  influenceUser: false,
 };
 
 function App() {
@@ -54,18 +62,26 @@ function App() {
   return (
     //wraps App to provide context to all components passing in current state and dispatch to reducer as value
     <Context.Provider value={[state, dispatch]}>
-      <div
-        className="App"
-        style={
-          state.darkMode
-            ? { backgroundColor: "#232E3C" }
-            : { backgroundColor: "#E1EBF5" }
-        }
-      >
-        <Header toggleDarkMode={toggleDarkMode} reducer={[state, dispatch]} />
-
-        <Index />
-      </div>
+      <Router>
+        <div
+          className="App"
+          style={
+            state.darkMode
+              ? { backgroundColor: "#232E3C" }
+              : { backgroundColor: "#E1EBF5" }
+          }
+        >
+          <Header toggleDarkMode={toggleDarkMode} reducer={[state, dispatch]} />
+          <Switch>
+            <Route exact path="/">
+              <Index />
+            </Route>
+            <Route exact path="/business" component={withRouter(Business)}>
+              <Business />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     </Context.Provider>
   );
 }

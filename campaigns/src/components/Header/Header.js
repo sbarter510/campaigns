@@ -4,7 +4,7 @@ export default function Header(props) {
   return (
     <nav>
       <div class="nav-wrapper" id="nav-bar">
-        <a href="#" class="brand-logo center black-text">
+        <a href="/" class="brand-logo center black-text">
           Gravitate
         </a>
 
