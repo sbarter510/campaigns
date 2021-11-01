@@ -1,7 +1,15 @@
 export const appReducer = (state, action) => {
   switch (action.type) {
     case "TOGGLE_DARK_MODE":
-      return { ...state, darkMode: !state.darkMode, bgColor: action.payload };
+      return {
+        ...state,
+        darkMode: !state.darkMode,
+      };
+    case "UPDATE_BG_COLOR":
+      return {
+        ...state,
+        vantaEffect: action.payload,
+      };
     case "SIGN_IN":
       return { ...state, signedIn: true, userName: action.payload };
     default:

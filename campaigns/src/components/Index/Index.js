@@ -1,22 +1,9 @@
 import React from "react";
-import moon from "../../static/moon.jpg";
 import { Link } from "react-router-dom";
 
 export default function Index() {
   return (
     <div className="container">
-      {/* perhaps use svg to make background effect */}
-      {/* <svg
-        viewBox="0 0 50 50"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{
-          position: "absolute",
-          opacity: "0.2",
-          fill: "red",
-        }}
-      >
-        <circle cx="3" cy="0" r="15" />
-      </svg> */}
       <div className="row">
         <div className="col m12">
           <h1 className="text-content left" style={{ fontFamily: "Dosis" }}>
