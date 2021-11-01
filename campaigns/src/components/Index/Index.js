@@ -4,23 +4,33 @@ import { Link } from "react-router-dom";
 
 export default function Index() {
   return (
-    <div className="container" style={{ marginTop: "150px" }}>
-      <h5 className="text-content center">
-        <strong>Take your business to the moon!</strong>
-      </h5>
-      <div className="center">
-        <img
-          src={moon}
-          alt="moon"
-          style={{ height: "200px", width: "200px", borderRadius: "50%" }}
-        />
+    <div className="container">
+      {/* perhaps use svg to make background effect */}
+      {/* <svg
+        viewBox="0 0 50 50"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{
+          position: "absolute",
+          opacity: "0.2",
+          fill: "red",
+        }}
+      >
+        <circle cx="3" cy="0" r="15" />
+      </svg> */}
+      <div className="row">
+        <div className="col m12">
+          <h1 className="text-content left" style={{ fontFamily: "Dosis" }}>
+            Take your business to the moon!
+          </h1>
+          <p className="text-content left flow-text">
+            Gravity connects you with influencers from Tiktok, Instagram and
+            Snapchat to help propel your business.
+          </p>
+        </div>
       </div>
-      <p className="text-content center flow-text">
-        Gravity connects you with influencers from Tiktok, Instagram and
-        Snapchat to help propel your business.
-      </p>
-      <div className="row center">
-        <div className="col s12">
+
+      <div className="row">
+        <div className="col s4">
           <button
             class="waves-effect waves-light btn-large"
             style={{
@@ -29,18 +39,17 @@ export default function Index() {
               borderRadius: "50px",
             }}
           >
-            <Link to="/business">I'm an Business Owner</Link>
+            <Link to="/business">Advertiser</Link>
           </button>
         </div>
-        <div className="row center">
-          <div className="col s12">
-            <button
-              class="waves-effect waves-light btn-large"
-              style={{ marginBottom: "20px", borderRadius: "50px" }}
-            >
-              <Link to="/influencer">I'm an Influencer</Link>
-            </button>
-          </div>
+
+        <div className="col s8">
+          <button
+            class="waves-effect waves-light btn-large"
+            style={{ marginBottom: "20px", borderRadius: "50px" }}
+          >
+            <Link to="/influencer">Influencer</Link>
+          </button>
         </div>
       </div>
     </div>

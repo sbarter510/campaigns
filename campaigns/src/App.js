@@ -1,9 +1,13 @@
-import { useContext, useReducer, useRef } from "react";
+import { useContext, useReducer, useRef, useEffect, useState } from "react";
 import { Context } from "./context/context";
 import { appReducer } from "./context/reducer";
 import "materialize-css/dist/css/materialize.min.css";
 
+import RINGS from "vanta/dist/vanta.rings.min";
+import * as THREE from "three/build/three";
+
 //compoenents
+// import SVG from "./components/SVG/SVG";
 import Header from "./components/Header/Header";
 import Index from "./components/Index/Index";
 import Business from "./components/Business/Business";
@@ -28,6 +32,8 @@ function App() {
 
   const [state, dispatch] = useReducer(appReducer, initialState);
 
+  //!!Important. All text must be classed "text-content" in order to be toggled off and on with dark mode
+  // TODO: Add darkmode preference to local storage so it doesnt reset on refresh
   const toggleDarkMode = () => {
     const icons = document.getElementsByClassName("material-icons");
     const text = document.getElementsByClassName("text-content");
@@ -59,6 +65,50 @@ function App() {
     return dispatch({ type: "SIGN_IN", payload: userRef.current.value });
   };
 
+  const [vantaEffect, setVantaEffect] = useState(0);
+  const myRef = useRef(null);
+  useEffect(() => {
+    const dark = 0x18181e;
+    const light = 0xffffff;
+
+    if (!vantaEffect && state.darkMode === false) {
+      setVantaEffect(
+        RINGS({
+          el: myRef.current,
+          THREE: THREE,
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          maxHeight: 300.0,
+          minWidth: 300.0,
+          scale: 1.0,
+          scaleMobile: 1.0,
+          backgroundColor: dark,
+        })
+      );
+    } else {
+      if (!vantaEffect && state.darkMode === false) {
+        setVantaEffect(
+          RINGS({
+            el: myRef.current,
+            THREE: THREE,
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            maxHeight: 300.0,
+            minWidth: 300.0,
+            scale: 1.0,
+            scaleMobile: 1.0,
+            backgroundColor: light,
+          })
+        );
+      }
+    }
+    return () => {
+      if (vantaEffect) vantaEffect.destroy();
+    };
+  }, [state.darkMode]);
+
   return (
     //wraps App to provide context to all components passing in current state and dispatch to reducer as value
     <Context.Provider value={[state, dispatch]}>
@@ -67,18 +117,20 @@ function App() {
           className="App"
           style={
             state.darkMode
-              ? { backgroundColor: "#232E3C" }
+              ? { backgroundColor: "#374659" }
               : { backgroundColor: "#E1EBF5" }
           }
         >
           <Header toggleDarkMode={toggleDarkMode} reducer={[state, dispatch]} />
           <Switch>
-            <Route exact path="/">
-              <Index />
-            </Route>
-            <Route exact path="/business" component={withRouter(Business)}>
-              <Business />
-            </Route>
+            <div ref={myRef}>
+              <Route exact path="/">
+                <Index />
+              </Route>
+              <Route exact path="/business" component={withRouter(Business)}>
+                <Business />
+              </Route>
+            </div>
           </Switch>
         </div>
       </Router>

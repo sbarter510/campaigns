@@ -4,8 +4,12 @@ export default function Header(props) {
   return (
     <nav>
       <div class="nav-wrapper" id="nav-bar">
-        <a href="/" class="brand-logo center black-text">
-          Gravitate
+        <a
+          href="/"
+          class="brand-logo center black-text"
+          style={{ fontFamily: "Roboto", fontSize: "3rem" }}
+        >
+          Gravity
         </a>
 
         {/* {for use with mobile devices pop up on side} */}
