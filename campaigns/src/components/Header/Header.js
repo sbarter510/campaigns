@@ -3,8 +3,8 @@ import React from "react";
 export default function Header(props) {
   return (
     <nav>
-      <div class="nav-wrapper grey">
-        <a href="#" class="brand-logo center">
+      <div class="nav-wrapper" id="nav-bar">
+        <a href="#" class="brand-logo center black-text">
           Gravitate
         </a>
 

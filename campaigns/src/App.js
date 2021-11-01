@@ -5,6 +5,10 @@ import "materialize-css/dist/css/materialize.min.css";
 
 //compoenents
 import Header from "./components/Header/Header";
+import Index from "./components/Index/Index";
+
+//picture
+import moon from "./static/moon.jpg";
 
 const initialState = {
   darkMode: false,
@@ -18,6 +22,7 @@ function App() {
 
   const toggleDarkMode = () => {
     const icons = document.getElementsByClassName("material-icons");
+    const text = document.getElementsByClassName("text-content");
     const colorChangeHandler = () => {
       for (let i = 0; i < icons.length; i++) {
         if (state.darkMode) {
@@ -27,7 +32,18 @@ function App() {
         }
       }
     };
+
+    const textChangeHandler = () => {
+      for (let i = 0; i < text.length; i++) {
+        if (state.darkMode) {
+          text[i].style.color = "black";
+        } else {
+          text[i].style.color = "white";
+        }
+      }
+    };
     colorChangeHandler();
+    textChangeHandler();
     return dispatch({ type: "TOGGLE_DARK_MODE" });
   };
 
@@ -40,9 +56,15 @@ function App() {
     <Context.Provider value={[state, dispatch]}>
       <div
         className="App"
-        style={{ backgroundColor: state.darkMode ? "black" : "white" }}
+        style={
+          state.darkMode
+            ? { backgroundColor: "#232E3C" }
+            : { backgroundColor: "#E1EBF5" }
+        }
       >
         <Header toggleDarkMode={toggleDarkMode} reducer={[state, dispatch]} />
+
+        <Index />
       </div>
     </Context.Provider>
   );
