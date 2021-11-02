@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import M from "materialize-css/dist/js/materialize.min";
-import Search from "./Search";
-import InfluencerResults from "./InfluencerResults";
+import Search from "../Business/Search";
+import BusinessResults from "./BusinessResults";
 
-export default function Business() {
+export default function Influencer() {
   useEffect(() => {
     M.updateTextFields();
   });
+
   return (
     <div className="container">
       <Search />
-      <InfluencerResults />
+      <BusinessResults />
     </div>
   );
 }
