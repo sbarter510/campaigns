@@ -7,13 +7,14 @@ import RINGS from "vanta/dist/vanta.rings.min";
 import * as THREE from "three/build/three";
 
 //compoenents
-// import SVG from "./components/SVG/SVG";
+
 import Header from "./components/Header/Header";
 import Index from "./components/Index/Index";
 import Business from "./components/Business/Business";
 import Slider from "./components/Index/Slider";
 import InfluenceSlider from "./components/Index/InfluenceSlider";
 import Influencer from "./components/Influencer/Influencer";
+import Signup from "./components/Signup/Signup";
 
 //React Router Dom elements
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -32,6 +33,7 @@ function App() {
 
   //!!Important. All text must be classed "text-content" in order to be toggled off and on with dark mode
   // TODO: Add darkmode preference to local storage so it doesnt reset on refresh
+  //TODO move all styling to css files for appropriate components
   const toggleDarkMode = () => {
     const icons = document.getElementsByClassName("material-icons");
     const text = document.getElementsByClassName("text-content");
@@ -137,6 +139,9 @@ function App() {
             </Route>
             <Route exact path="/influencer">
               <Influencer />
+            </Route>
+            <Route exact path="/signup">
+              <Signup />
             </Route>
           </Switch>
         </div>

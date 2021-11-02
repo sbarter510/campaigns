@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Header(props) {
   return (
@@ -24,7 +25,9 @@ export default function Header(props) {
             <a href="collapsible.html">JavaScript</a>
           </li>
         </ul> */}
-        <i class="material-icons right">person</i>
+        <i class="material-icons right">
+          <Link to="/signup">person</Link>
+        </i>
 
         <i
           class="material-icons right active"

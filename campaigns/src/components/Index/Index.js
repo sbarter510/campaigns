@@ -4,6 +4,7 @@ import Slider from "./Slider";
 
 export default function Index() {
   return (
+    //Todo add hoverable to buttons
     <div className="container">
       <div className="row">
         <div className="col m12">
@@ -20,7 +21,7 @@ export default function Index() {
       <div className="row">
         <div className="col s12 m2">
           <button
-            class="waves-effect waves-light btn-large"
+            class="waves-effect waves-light btn-large hoverable"
             style={{
               marginBottom: "20px",
               marginRight: "10px",
@@ -33,7 +34,7 @@ export default function Index() {
 
         <div className="col s12 m10">
           <button
-            class="waves-effect waves-light btn-large"
+            class="waves-effect waves-light btn-large hoverable"
             style={{ marginBottom: "20px", borderRadius: "50px" }}
           >
             <Link to="/influencer">Influencer</Link>
