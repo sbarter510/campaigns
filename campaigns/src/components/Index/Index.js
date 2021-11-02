@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Slider from "./Slider";
 
 export default function Index() {
   return (
@@ -20,25 +19,29 @@ export default function Index() {
 
       <div className="row">
         <div className="col s12 m2">
-          <button
-            class="waves-effect waves-light btn-large hoverable"
-            style={{
-              marginBottom: "20px",
-              marginRight: "10px",
-              borderRadius: "50px",
-            }}
-          >
-            <Link to="/business">Advertiser</Link>
-          </button>
+          <Link to="/business">
+            <button
+              class="waves-effect waves-light btn-large hoverable"
+              style={{
+                marginBottom: "20px",
+                marginRight: "10px",
+                borderRadius: "50px",
+              }}
+            >
+              Advertiser
+            </button>
+          </Link>
         </div>
 
         <div className="col s12 m10">
-          <button
-            class="waves-effect waves-light btn-large hoverable"
-            style={{ marginBottom: "20px", borderRadius: "50px" }}
-          >
-            <Link to="/influencer">Influencer</Link>
-          </button>
+          <Link to="/influencer">
+            <button
+              class="waves-effect waves-light btn-large hoverable"
+              style={{ marginBottom: "20px", borderRadius: "50px" }}
+            >
+              Influencer
+            </button>
+          </Link>
         </div>
       </div>
     </div>

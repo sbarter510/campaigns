@@ -1,72 +1,42 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../context/context";
+import axios from "axios";
 
 export default function BusinessResults() {
   const [state, dispatch] = useContext(Context);
-  return (
-    <div>
-      <ul class="collection">
+  const [businessResults, setBusinessResults] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://jsonplaceholder.typicode.com/users").then((results) => {
+      setBusinessResults(results.data);
+    });
+  }, []);
+
+  const getBusinessResultsHandler = () => {
+    return businessResults.map((result) => {
+      return (
         <li class="collection-item avatar">
           <img
             src="http://lorempixel.com/250/250/business/1"
             alt=""
             class="circle"
           />
-          <span class="title">Sue Bob</span>
+          <span class="title">{result.name}</span>
           <p>
-            120,000 Followers <br />
-            Technology
+            {result.company.name} <br />
+            {result.company.bs}
           </p>
           <a href="#!" class="secondary-content">
             <i class="material-icons">grade</i>
           </a>
         </li>
-        <li class="collection-item avatar">
-          <img
-            src="http://lorempixel.com/250/250/business/2"
-            alt=""
-            class="circle"
-          />
-          <span class="title">Title</span>
-          <p>
-            First Line <br />
-            Second Line
-          </p>
-          <a href="#!" class="secondary-content">
-            <i class="material-icons">grade</i>
-          </a>
-        </li>
-        <li class="collection-item avatar">
-          <img
-            src="http://lorempixel.com/450/450/business/3"
-            alt=""
-            class="circle"
-          />
-          <span class="title">Title</span>
-          <p>
-            First Line <br />
-            Second Line
-          </p>
-          <a href="#!" class="secondary-content">
-            <i class="material-icons">grade</i>
-          </a>
-        </li>
-        <li class="collection-item avatar">
-          <img
-            src="http://lorempixel.com/250/250/business/4"
-            alt=""
-            class="circle"
-          />
-          <span class="title">Title</span>
-          <p>
-            First Line <br />
-            Second Line
-          </p>
-          <a href="#!" class="secondary-content">
-            <i class="material-icons">grade</i>
-          </a>
-        </li>
-      </ul>
+      );
+    });
+  };
+
+  return (
+    <div>
+      <ul class="collection">{getBusinessResultsHandler()}</ul>
     </div>
   );
 }

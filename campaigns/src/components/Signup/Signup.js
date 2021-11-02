@@ -7,8 +7,9 @@ export default function Signup() {
     M.updateTextFields();
   });
   return (
-    <div className="row valign-wrapper" style={{ height: "100%" }}>
-      <div className="col s12 m6 offset-m3">
+    <div className="row valign-wrapper" style={{ height: "100vh" }}>
+      <div className="col s12 m6 offset-m3 center">
+        <h2 className="text-content">Signup</h2>
         <div className="card-panel">
           <div className="row">
             <form className="col s12">
@@ -38,6 +39,14 @@ export default function Signup() {
                   <input id="email" type="email" className="validate" />
                   <label for="email">Email</label>
                 </div>
+              </div>
+              <div className="center">
+                <button
+                  class="waves-effect waves-light btn-large hoverable"
+                  style={{ marginBottom: "20px", borderRadius: "25px" }}
+                >
+                  Submit
+                </button>
               </div>
             </form>
           </div>
