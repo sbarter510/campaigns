@@ -8,7 +8,7 @@ export default function Slider() {
   }, []);
 
   return (
-    <div className="container" style={{ marginTop: "100px" }}>
+    <div className="container" style={{ marginTop: "600px" }}>
       <div className="row">
         <div className="col s12 m6">
           <div className="container">

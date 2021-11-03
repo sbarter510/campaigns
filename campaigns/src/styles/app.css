@@ -10,7 +10,7 @@ body {
   font-family: "Archivo Black", sans-serif;
   font-family: "Dosis", sans-serif;
   font-family: "Roboto", sans-serif;
-  height: 100%;
+  font-weight: 600;
 }
 
 html {
@@ -28,18 +28,12 @@ html {
 
 .App {
   min-height: 100vh;
-  background-color: #e1ebf5;
 }
-
+/* 
 .material-icons {
   color: black;
   cursor: pointer;
-}
-
-#darkModeToggle:active {
-  opacity: 0.5;
-  color: darkgray;
-}
+} */
 
 p,
 h1,
@@ -49,18 +43,10 @@ h4,
 h5,
 h6 {
   color: #232e3c;
+  font-weight: 600;
 }
 
-#nav-bar {
-  background-color: #6091c2;
-  color: #232e3c;
-}
-
-.btn-large {
-  background-color: #6091c2;
-  color: #232e3c;
-}
-
-a:visited {
+/* #nav-bar {
+  background-color: #374659;
   color: #e1ebf5;
-}
+} */

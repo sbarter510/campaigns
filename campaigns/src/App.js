@@ -27,8 +27,6 @@ const initialState = {
 };
 
 function App() {
-  const userRef = useRef(null);
-
   const [state, dispatch] = useReducer(appReducer, initialState);
 
   //!!Important. All text must be classed "text-content" in order to be toggled off and on with dark mode
@@ -63,29 +61,30 @@ function App() {
       return dispatch({
         type: "TOGGLE_DARK_MODE",
         payload: RINGS({
-          el: myRef.current,
+          el: vantaElementRef.current,
           THREE: THREE,
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          maxHeight: 500.0,
+          minHeight: 850.0,
           minWidth: 300.0,
           scale: 1.0,
           scaleMobile: 1.0,
-          backgroundColor: state.darkMode === true ? 0xffffff : 0x18181e,
+          backgroundColor: state.darkMode === true ? 0xffffff : 0x0,
         }),
       });
     }
     dispatch({ type: "TOGGLE_DARK_MODE" });
   };
 
-  const setUser = () => {
-    return dispatch({ type: "SIGN_IN", payload: userRef.current.value });
-  };
+  // const setUser = () => {
+  //   return dispatch({ type: "SIGN_IN", payload: userRef.current.value });
+  // };
 
-  const myRef = useRef(null);
+  const vantaElementRef = useRef(null);
+
   useEffect(() => {
-    const dark = 0x18181e;
+    const dark = 0x0;
     const light = 0xffffff;
 
     if (
@@ -95,12 +94,12 @@ function App() {
       dispatch({
         type: "UPDATE_BG_COLOR",
         payload: RINGS({
-          el: myRef.current,
+          el: vantaElementRef.current,
           THREE: THREE,
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
-          maxHeight: 300.0,
+          minHeight: 850.0,
           minWidth: 300.0,
           scale: 1.0,
           scaleMobile: 1.0,
@@ -117,18 +116,20 @@ function App() {
     //wraps App to provide context to all components passing in current state and dispatch to reducer as value
     <Context.Provider value={[state, dispatch]}>
       <Router>
+        {/* TODO: figure out a way to store darkmode settings in CSS. Class based? */}
         <div
           className="App"
           style={
             state.darkMode
-              ? { backgroundColor: "#374659" }
-              : { backgroundColor: "#E1EBF5" }
+              ? { backgroundColor: "black" }
+              : { backgroundColor: "white" }
           }
         >
           <Header toggleDarkMode={toggleDarkMode} />
           <Switch>
             <Route exact path="/">
-              <div ref={myRef}>
+              {/* This is the div where animated background is placed. Index Only. */}
+              <div ref={vantaElementRef}>
                 <Index />
               </div>
               <Slider />

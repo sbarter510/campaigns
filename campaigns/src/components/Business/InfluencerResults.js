@@ -20,6 +20,7 @@ export default function InfluencerResults() {
   const getInfluencerResultsHandler = () => {
     return influencerResults.map((result, idx) => {
       return (
+        // li needs colors for darkmode
         <li
           class="collection-item avatar"
           id={result.id}
@@ -75,14 +76,16 @@ export default function InfluencerResults() {
     );
   };
 
-  //creates parent ul which holds li's which contain influencer results
+  //populates parent ul to hold li's which contain influencer results
   return (
     <div class="row flex">
+      {/* div below needs color schema for darkmode */}
       <div className="col s12 m4" style={{ overflowY: "scroll" }}>
         <ul class="collection">{getInfluencerResultsHandler()}</ul>
       </div>
-      {/* {adding 2nd half panel for displaying more info} */}
+
       <div className="col m8 hide-on-small-only">
+        {/* div needs color schema for darkmode */}
         <div class="card" style={{ height: "97.33%" }}>
           <div class="card-content">
             <span class="card-title">

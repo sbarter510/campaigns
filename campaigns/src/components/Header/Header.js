@@ -1,15 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./header.css";
 
 export default function Header(props) {
   return (
     <nav>
-      <div class="nav-wrapper" id="nav-bar">
-        <a
-          href="/"
-          class="brand-logo center black-text"
-          style={{ fontFamily: "Roboto", fontSize: "3rem" }}
-        >
+      <div class="nav-wrapper cyan lighten-1" id="nav-bar">
+        <a href="/" class="brand-logo center">
           Gravity
         </a>
 
@@ -30,7 +27,7 @@ export default function Header(props) {
         </i>
 
         <i
-          class="material-icons right active"
+          class="material-icons right"
           id="darkModeToggle"
           onClick={props.toggleDarkMode}
         >
