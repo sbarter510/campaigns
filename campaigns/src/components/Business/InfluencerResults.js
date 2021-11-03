@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState, useCallback } from "react";
 import { Context } from "../../context/context";
 import axios from "axios";
+import InfluencerResult from "./InfluencerResult";
 
 export default function InfluencerResults() {
   const [state, dispatch] = useContext(Context);
@@ -54,25 +55,34 @@ export default function InfluencerResults() {
 
   const displaySelectedInfluencer = () => {
     return (
-      <div>
-        <img
-          src={`http://lorempixel.com/250/250/people/${selectedInfluencer[0].id}`}
-          alt=""
-          style={{ width: "100%", height: "250px", borderRadius: "25px" }}
-        />
-        <p className="flow-text center">"{selectedInfluencer[0].company.bs}"</p>
-      </div>
+      <InfluencerResult
+        img={"http://lorempixel.com/250/250/people/" + selectedInfluencer[0].id}
+        quote={selectedInfluencer[0].company.bs}
+      />
+      // <div className="row">
+      //   <div className="col m4 offset-m4">
+      //     <img
+      //       src={`http://lorempixel.com/250/250/people/${selectedInfluencer[0].id}`}
+      //       alt=""
+      //       style={{ height: "250px", borderRadius: "25px" }}
+      //       className="center"
+      //     />
+      //     <p className="flow-text center">
+      //       "{selectedInfluencer[0].company.bs}"
+      //     </p>
+      //   </div>
+      // </div>
     );
   };
 
   //creates parent ul which holds li's which contain influencer results
   return (
     <div class="row flex">
-      <div className="col s12 m6" style={{ overflowY: "scroll" }}>
+      <div className="col s12 m4" style={{ overflowY: "scroll" }}>
         <ul class="collection">{getInfluencerResultsHandler()}</ul>
       </div>
       {/* {adding 2nd half panel for displaying more info} */}
-      <div className="col m6 hide-on-small-only">
+      <div className="col m8 hide-on-small-only">
         <div class="card" style={{ height: "97.33%" }}>
           <div class="card-content">
             <span class="card-title">
