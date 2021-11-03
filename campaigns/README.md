@@ -1,3 +1,6 @@
 # Getting Started
 
-Type "npm install"
+cd campaigns "npm install"
+npm start
+cd api "npm install"
+npm start
