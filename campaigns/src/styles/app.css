@@ -10,10 +10,16 @@ body {
   font-family: "Archivo Black", sans-serif;
   font-family: "Dosis", sans-serif;
   font-family: "Roboto", sans-serif;
+  height: 100%;
 }
 
-#bg {
-  z-index: 10;
+html {
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #navbar {

@@ -6,16 +6,21 @@ export default function Search() {
     M.updateTextFields();
   });
   return (
-    <div className="row" style={{ marginTop: "20px", marginBottom: "0px" }}>
+    <div className="row">
       <form className="col s12">
-        <div className="row">
-          <div className="input-field col s12  left">
-            <i className="material-icons prefix text-content">search</i>
-            <textarea
-              id="icon_prefix2"
-              className="materialize-textarea text-content"
-            ></textarea>
-            <label for="icon_prefix2">Search by Topic</label>
+        <div className="valign-wrapper">
+          <div className="row" style={{ width: "100%" }}>
+            <div
+              className="input-field col s12  left"
+              style={{ position: "relative", top: "20px" }}
+            >
+              <i className="material-icons prefix text-content">search</i>
+              <textarea
+                id="icon_prefix2"
+                className="materialize-textarea text-content"
+              ></textarea>
+              <label for="icon_prefix2">Search by Topic</label>
+            </div>
           </div>
         </div>
       </form>
