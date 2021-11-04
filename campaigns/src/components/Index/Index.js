@@ -21,7 +21,7 @@ export default function Index() {
         <div className="col s12 m2">
           <Link to="/business">
             <button
-              class="waves-effect waves-light btn-large hoverable"
+              class="waves-effect waves-light btn-large hoverable cyan lighten-1"
               style={{
                 marginBottom: "20px",
                 marginRight: "10px",
@@ -36,7 +36,7 @@ export default function Index() {
         <div className="col s12 m10">
           <Link to="/influencer">
             <button
-              class="waves-effect waves-light btn-large hoverable"
+              class="waves-effect waves-light btn-large hoverable cyan lighten-1"
               style={{ marginBottom: "20px", borderRadius: "50px" }}
             >
               Influencer

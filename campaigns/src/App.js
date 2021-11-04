@@ -15,6 +15,7 @@ import Slider from "./components/Index/Slider";
 import InfluenceSlider from "./components/Index/InfluenceSlider";
 import Influencer from "./components/Influencer/Influencer";
 import Signup from "./components/Signup/Signup";
+import NetworksBar from "./components/Index/NetworksBar";
 
 //React Router Dom elements
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -132,6 +133,7 @@ function App() {
               <div ref={vantaElementRef}>
                 <Index />
               </div>
+              <NetworksBar />
               <Slider />
               <InfluenceSlider />
             </Route>
