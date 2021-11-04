@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const Influencer = require("../models/Influencer");
+const Business = require("../models/Business");
 const bcrypt = require("bcryptjs");
 const config = require("config");
 const jwt = require("jsonwebtoken");
@@ -17,16 +17,14 @@ router.post("/register", (req, res) => {
   const userName = req.body.userName;
   const email = req.body.email;
   const password = req.body.password;
-  const link = req.body.link;
-  const platforms = req.body.platforms;
-  const topic = req.body.topic;
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
+  const companyName = req.body.companyName;
+  const topics = req.body.topic;
+  const rating = req.body.rating;
 
   if (!userName || !email || !password) {
     return res.send({ msg: "Please fill out all fields" });
   }
-  Influencer.findOne({ email }).then((doc) => {
+  Business.findOne({ email }).then((doc) => {
     if (doc) {
       return res.json({ msg: "User with that email already exists" });
     }
@@ -38,16 +36,7 @@ router.post("/register", (req, res) => {
         //generating hash
         bcrypt.hash(password, salt).then((hash) => {
           //create new user in db using encryted pw
-          Influencer.create({
-            email,
-            userName,
-            password: hash,
-            platforms,
-            topic,
-            firstName,
-            lastName,
-            link,
-          }).then((doc) => {
+          Business.create({ email, userName, password: hash }).then((doc) => {
             return res.json({
               msg: "Registration Successful",
               user: doc.userName,
@@ -69,7 +58,7 @@ router.post("/login", (req, res) => {
     return res.json({ msg: "Please enter both email and password" });
   }
 
-  Influencer.findOne({ email })
+  Business.findOne({ email })
     .then((doc) => {
       if (!doc) {
         return res.json({ msg: "No user with that email" });

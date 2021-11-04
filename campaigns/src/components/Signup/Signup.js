@@ -15,6 +15,9 @@ export default function Signup() {
         email: emailRef.current.value,
         password: passwordRef.current.value,
         userName: firstNameRef.current.value,
+        platforms: platformsRef.current.value,
+        topic: topicRef.current.value,
+        link: linkRef.current.value,
       })
       .then((res) => {
         console.log(res.data);
@@ -26,6 +29,9 @@ export default function Signup() {
   const confirmPasswordRef = useRef();
   const firstNameRef = useRef();
   const lastNameRef = useRef();
+  const platformsRef = useRef();
+  const topicRef = useRef();
+  const linkRef = useRef();
 
   return (
     <div className="row valign-wrapper" style={{ height: "100vh" }}>
@@ -34,49 +40,7 @@ export default function Signup() {
         <div className="card-panel">
           <div className="row">
             <form className="col s12">
-              <div className="row">
-                <div className="input-field col s6">
-                  <input
-                    placeholder="Placeholder"
-                    id="first_name"
-                    type="text"
-                    className="validate"
-                    ref={firstNameRef}
-                  />
-                  <label for="first_name">First Name</label>
-                </div>
-                <div className="input-field col s6">
-                  <input
-                    id="last_name"
-                    type="text"
-                    className="validate"
-                    ref={lastNameRef}
-                  />
-                  <label for="last_name">Last Name</label>
-                </div>
-              </div>
-              <div className="row">
-                <div className="input-field col s12">
-                  <input
-                    id="password"
-                    type="password"
-                    className="validate"
-                    ref={passwordRef}
-                  />
-                  <label for="password">Password</label>
-                </div>
-              </div>
-              <div className="row">
-                <div className="input-field col s12">
-                  <input
-                    id="passwordConfirmation"
-                    type="password"
-                    className="validate"
-                    ref={confirmPasswordRef}
-                  />
-                  <label for="password">Password</label>
-                </div>
-              </div>
+              {/* email */}
               <div className="row">
                 <div className="input-field col s12">
                   <input
@@ -88,6 +52,89 @@ export default function Signup() {
                   <label for="email">Email</label>
                 </div>
               </div>
+              {/* firstName */}
+              <div className="row">
+                <div className="input-field col s6">
+                  <input
+                    placeholder="Placeholder"
+                    id="first_name"
+                    type="text"
+                    className="validate"
+                    ref={firstNameRef}
+                  />
+                  <label for="first_name">First Name</label>
+                </div>
+                {/* lastName */}
+                <div className="input-field col s6">
+                  <input
+                    id="last_name"
+                    type="text"
+                    className="validate"
+                    ref={lastNameRef}
+                  />
+                  <label for="last_name">Last Name</label>
+                </div>
+              </div>
+              {/* Platforms */}
+              <div className="row">
+                <div className="input-field col s6">
+                  <input
+                    id="platforms"
+                    type="text"
+                    className="validate"
+                    ref={platformsRef}
+                  />
+                  <label for="platforms">Platforms</label>
+                </div>
+                {/* Link */}
+                <div className="input-field col s6">
+                  <input
+                    id="link"
+                    type="text"
+                    className="validate"
+                    ref={linkRef}
+                  />
+                  <label for="link">Link to your work</label>
+                </div>
+              </div>
+
+              {/* topics */}
+              <div className="row">
+                <div className="input-field col s12">
+                  <input
+                    id="topics"
+                    type="text"
+                    className="validate"
+                    ref={topicRef}
+                  />
+                  <label for="topics">Topics</label>
+                </div>
+              </div>
+              {/* password */}
+              <div className="row">
+                <div className="input-field col s12">
+                  <input
+                    id="password"
+                    type="password"
+                    className="validate"
+                    ref={passwordRef}
+                  />
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              {/* //password confirmation */}
+              <div className="row">
+                <div className="input-field col s12">
+                  <input
+                    id="passwordConfirmation"
+                    type="password"
+                    className="validate"
+                    ref={confirmPasswordRef}
+                  />
+                  <label for="password">Password</label>
+                </div>
+              </div>
+              {/* //button */}
               <div className="center">
                 <button
                   class="waves-effect waves-light btn-large hoverable"
