@@ -5,7 +5,7 @@ import "./header.css";
 export default function Header(props) {
   return (
     <nav>
-      <div class="nav-wrapper cyan lighten-1" id="nav-bar">
+      <div class="nav-wrapper purple darken-1" id="nav-bar">
         <a href="/" class="brand-logo center">
           Gravity
         </a>

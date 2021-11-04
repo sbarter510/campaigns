@@ -6,6 +6,8 @@ import "materialize-css/dist/css/materialize.min.css";
 import RINGS from "vanta/dist/vanta.rings.min";
 import * as THREE from "three/build/three";
 
+import galaxy from "./static/galaxy.jpg";
+
 //compoenents
 
 import Header from "./components/Header/Header";
@@ -56,24 +58,24 @@ function App() {
     };
     colorChangeHandler();
     textChangeHandler();
-    if (window.location.href === "http://localhost:3000/") {
-      console.log("triggered");
-      return dispatch({
-        type: "TOGGLE_DARK_MODE",
-        payload: RINGS({
-          el: vantaElementRef.current,
-          THREE: THREE,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 850.0,
-          minWidth: 300.0,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          backgroundColor: state.darkMode === true ? 0xffffff : 0x0,
-        }),
-      });
-    }
+    // if (window.location.href === "http://localhost:3000/") {
+    //   console.log("triggered");
+    //   return dispatch({
+    //     type: "TOGGLE_DARK_MODE",
+    //     payload: RINGS({
+    //       el: vantaElementRef.current,
+    //       THREE: THREE,
+    //       mouseControls: true,
+    //       touchControls: true,
+    //       gyroControls: false,
+    //       minHeight: 850.0,
+    //       minWidth: 300.0,
+    //       scale: 1.0,
+    //       scaleMobile: 1.0,
+    //       backgroundColor: state.darkMode === true ? 0xffffff : 0x0,
+    //     }),
+    //   });
+    // }
     dispatch({ type: "TOGGLE_DARK_MODE" });
   };
 
@@ -81,36 +83,36 @@ function App() {
   //   return dispatch({ type: "SIGN_IN", payload: userRef.current.value });
   // };
 
-  const vantaElementRef = useRef(null);
+  // const vantaElementRef = useRef(null);
 
-  useEffect(() => {
-    const dark = 0x0;
-    const light = 0xffffff;
+  // useEffect(() => {
+  //   const dark = 0x0;
+  //   const light = 0xffffff;
 
-    if (
-      !state.vantaEffect &&
-      window.location.href === "http://localhost:3000/"
-    ) {
-      dispatch({
-        type: "UPDATE_BG_COLOR",
-        payload: RINGS({
-          el: vantaElementRef.current,
-          THREE: THREE,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 850.0,
-          minWidth: 300.0,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          backgroundColor: light,
-        }),
-      });
-    }
-    return () => {
-      if (state.vantaEffect) state.vantaEffect.destroy();
-    };
-  }, [state.vantaEffect]);
+  //   if (
+  //     !state.vantaEffect &&
+  //     window.location.href === "http://localhost:3000/"
+  //   ) {
+  //     dispatch({
+  //       type: "UPDATE_BG_COLOR",
+  //       payload: RINGS({
+  //         el: vantaElementRef.current,
+  //         THREE: THREE,
+  //         mouseControls: true,
+  //         touchControls: true,
+  //         gyroControls: false,
+  //         minHeight: 850.0,
+  //         minWidth: 300.0,
+  //         scale: 1.0,
+  //         scaleMobile: 1.0,
+  //         backgroundColor: light,
+  //       }),
+  //     });
+  //   }
+  //   return () => {
+  //     if (state.vantaEffect) state.vantaEffect.destroy();
+  //   };
+  // }, [state.vantaEffect]);
 
   return (
     //wraps App to provide context to all components passing in current state and dispatch to reducer as value
@@ -129,7 +131,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               {/* This is the div where animated background is placed. Index Only. */}
-              <div ref={vantaElementRef}>
+              <div
+                style={{ backgroundImage: `url(${galaxy})`, height: "900px" }}
+              >
                 <Index />
               </div>
               <Slider />
