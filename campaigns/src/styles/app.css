@@ -17,6 +17,10 @@ html {
   height: 100%;
 }
 
+.headline {
+  font-family: "Dosis";
+}
+
 .flex {
   display: flex;
   flex-wrap: wrap;
@@ -26,14 +30,9 @@ html {
   font-family: "Dosis", sans-serif;
 }
 
-.App {
-  min-height: 100vh;
-}
-/* 
 .material-icons {
-  color: black;
   cursor: pointer;
-} */
+}
 
 p,
 h1,
@@ -45,8 +44,3 @@ h6 {
   color: #232e3c;
   font-weight: 600;
 }
-
-/* #nav-bar {
-  background-color: #374659;
-  color: #e1ebf5;
-} */

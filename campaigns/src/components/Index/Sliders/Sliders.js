@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import M from "materialize-css/dist/js/materialize.min";
+import "./slider.css";
 
-export default function Slider() {
+export default function Sliders() {
   useEffect(() => {
     var elems = document.querySelectorAll(".slider");
     var instances = M.Slider.init(elems, {});
   }, []);
 
   return (
-    <div className="container" style={{ marginTop: "600px" }}>
-      <div className="row">
+    <div className="container">
+      <div className="row" id="section-two-container">
         <div className="col s12 m6">
           <div className="container">
             <div className="slider center">

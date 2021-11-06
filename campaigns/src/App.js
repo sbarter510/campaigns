@@ -3,17 +3,19 @@ import { Context } from "./context/context";
 import { appReducer } from "./context/reducer";
 import "materialize-css/dist/css/materialize.min.css";
 
+import M from "materialize-css/dist/js/materialize.min";
+
 import RINGS from "vanta/dist/vanta.rings.min";
 import * as THREE from "three/build/three";
 
-import galaxy from "./static/galaxy.jpg";
+import bgImg from "./static/purp.jpg";
 
 //compoenents
 
 import Header from "./components/Header/Header";
 import Index from "./components/Index/Index";
 import Business from "./components/Business/Business";
-import Slider from "./components/Index/Slider";
+import Sliders from "./components/Index/Sliders/Sliders";
 import InfluenceSlider from "./components/Index/InfluenceSlider";
 import Influencer from "./components/Influencer/Influencer";
 import Signup from "./components/Signup/Signup";
@@ -76,6 +78,7 @@ function App() {
     //     }),
     //   });
     // }
+
     dispatch({ type: "TOGGLE_DARK_MODE" });
   };
 
@@ -131,12 +134,10 @@ function App() {
           <Switch>
             <Route exact path="/">
               {/* This is the div where animated background is placed. Index Only. */}
-              <div
-                style={{ backgroundImage: `url(${galaxy})`, height: "900px" }}
-              >
-                <Index />
-              </div>
-              <Slider />
+
+              <Index />
+
+              <Sliders />
               <InfluenceSlider />
             </Route>
             <Route exact path="/business">
