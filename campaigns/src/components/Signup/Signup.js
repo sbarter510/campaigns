@@ -34,12 +34,13 @@ export default function Signup() {
   const linkRef = useRef();
 
   return (
-    <div className="row valign-wrapper" style={{ height: "100vh" }}>
+    <div className="row valign-wrapper">
       <div className="col s12 m6 offset-m3 center">
         <h2 className="text-content">Signup</h2>
         <div className="card-panel">
           <div className="row">
             <form className="col s12">
+              <h1 className="purple-text">Sign up</h1>
               {/* email */}
               <div className="row">
                 <div className="input-field col s12">
@@ -138,12 +139,13 @@ export default function Signup() {
               <div className="center">
                 <button
                   class="waves-effect waves-light btn-large hoverable"
-                  style={{ marginBottom: "20px", borderRadius: "25px" }}
                   onClick={(e) => handleUserSubmit(e)}
                 >
                   Submit
                 </button>
-                <p>Already have a account? Sign in</p>
+                <p className="black-text">
+                  <em>Already have a account? Sign in</em>
+                </p>
               </div>
             </form>
           </div>

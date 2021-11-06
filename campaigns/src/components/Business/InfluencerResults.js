@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState, useCallback } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../context/context";
 import axios from "axios";
 import InfluencerResult from "./InfluencerResult";
 
 export default function InfluencerResults() {
-  const [state, dispatch] = useContext(Context);
+  // const [state, dispatch] = useContext(Context);
 
   const [influencerResults, setInfluencerResults] = useState([]);
   const [selectedInfluencer, setSelectedInfluencer] = useState(null);
@@ -31,8 +31,8 @@ export default function InfluencerResults() {
             alt=""
             class="circle"
           />
-          <span class="title">{result.name}</span>
-          <p>
+          <span class="title black-text">{result.name}</span>
+          <p className="black-text">
             {result.company.name} <br />
             {result.company.bs}
           </p>
@@ -60,31 +60,20 @@ export default function InfluencerResults() {
         img={"http://lorempixel.com/250/250/people/" + selectedInfluencer[0].id}
         quote={selectedInfluencer[0].company.bs}
       />
-      // <div className="row">
-      //   <div className="col m4 offset-m4">
-      //     <img
-      //       src={`http://lorempixel.com/250/250/people/${selectedInfluencer[0].id}`}
-      //       alt=""
-      //       style={{ height: "250px", borderRadius: "25px" }}
-      //       className="center"
-      //     />
-      //     <p className="flow-text center">
-      //       "{selectedInfluencer[0].company.bs}"
-      //     </p>
-      //   </div>
-      // </div>
     );
   };
 
   //populates parent ul to hold li's which contain influencer results
   return (
-    <div class="row flex">
+    <>
       {/* div below needs color schema for darkmode */}
-      <div className="col s12 m4" style={{ overflowY: "scroll" }}>
-        <ul class="collection">{getInfluencerResultsHandler()}</ul>
+      <div className="col s12 m4">
+        <ul class="collection" style={{ overflowY: "scroll" }}>
+          {getInfluencerResultsHandler()}
+        </ul>
       </div>
 
-      <div className="col m8 hide-on-small-only">
+      <div className="col m6 hide-on-small-only">
         {/* div needs color schema for darkmode */}
         <div class="card" style={{ height: "97.33%" }}>
           <div class="card-content">
@@ -92,13 +81,13 @@ export default function InfluencerResults() {
               {selectedInfluencer ? (
                 <h4 className="center">{selectedInfluencer[0].name}</h4>
               ) : (
-                <h4 className="center">Select a profile</h4>
+                <h4 className="center purple-text">Select a profile</h4>
               )}
             </span>
             {selectedInfluencer ? displaySelectedInfluencer() : null}
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
