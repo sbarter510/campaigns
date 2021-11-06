@@ -62,8 +62,10 @@ export default function BusinessResults() {
   //creates parent ul which holds li's which contain business results
   return (
     <>
-      <div className="col s12 m4" style={{ overflowY: "scroll" }}>
-        <ul class="collection">{getBusinessResultsHandler()}</ul>
+      <div className="col s12 m4">
+        <ul class="collection" style={{ overflowY: "scroll" }}>
+          {getBusinessResultsHandler()}
+        </ul>
       </div>
       {/* {adding 2nd half panel for displaying more info} */}
       <div className="col m6 hide-on-small-only">

@@ -1,39 +1,39 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Redirect, Link } from "react-router-dom";
+import React, { useEffect, useRef, useContext } from "react";
+import { Context } from "../../context/context";
+import { Redirect } from "react-router-dom";
 
 import M from "materialize-css/dist/js/materialize.min";
-import "./signup.css";
 import axios from "axios";
 
-export default function Signup() {
+export default function Login() {
+  const [state, dispatch] = useContext(Context);
+
   useEffect(() => {
     M.updateTextFields();
   });
 
-  const [signUpState, setSignUpState] = useState();
-
   const handleUserSubmit = async (e) => {
     e.preventDefault();
     await axios
-      .post("http://localhost:5000/user/register", {
+      .post("http://localhost:5000/user/login", {
         email: emailRef.current.value,
         password: passwordRef.current.value,
-        userName: firstNameRef.current.value,
       })
       .then((res) => {
         if (res.data.userName) {
-          setSignUpState(true);
+          //add jwt token to local storage
+          localStorage.setItem("token", res.data.token);
+          return dispatch({ type: "LOG_IN", payload: res.data.userName });
         } else {
-          console.log(res.data.msg);
+          console.log(res.data);
+          throw new Error((e) => res.data.msg);
         }
-      });
+      })
+      .catch((e) => console.log(e));
   };
 
   const emailRef = useRef();
   const passwordRef = useRef();
-  const confirmPasswordRef = useRef();
-  const firstNameRef = useRef();
-  const lastNameRef = useRef();
 
   return (
     <div className="row" style={{ margin: "8vh auto" }}>
@@ -41,7 +41,7 @@ export default function Signup() {
         <div className="card-panel">
           <div className="row">
             <form className="col s12">
-              <h1 className="purple-text">Sign up</h1>
+              <h1 className="purple-text">Log In</h1>
               {/* email */}
 
               <div className="input-field col s12">
@@ -55,27 +55,6 @@ export default function Signup() {
               </div>
 
               {/* firstName */}
-
-              <div className="input-field col s6">
-                <input
-                  placeholder="Placeholder"
-                  id="first_name"
-                  type="text"
-                  className="validate"
-                  ref={firstNameRef}
-                />
-                <label for="first_name">First Name</label>
-              </div>
-              {/* lastName */}
-              <div className="input-field col s6">
-                <input
-                  id="last_name"
-                  type="text"
-                  className="validate"
-                  ref={lastNameRef}
-                />
-                <label for="last_name">Last Name</label>
-              </div>
 
               {/* password */}
 
@@ -91,16 +70,6 @@ export default function Signup() {
 
               {/* //password confirmation */}
 
-              <div className="input-field col s12">
-                <input
-                  id="passwordConfirmation"
-                  type="password"
-                  className="validate"
-                  ref={confirmPasswordRef}
-                />
-                <label for="password">Password</label>
-              </div>
-
               {/* //button */}
               <div className="center">
                 <button
@@ -110,11 +79,9 @@ export default function Signup() {
                   Submit
                 </button>
                 <p className="purple-text">
-                  <em>
-                    Already have a account? <Link to="/login">Sign in</Link>
-                  </em>
+                  <em>Already have a account? Sign in</em>
                 </p>
-                {signUpState ? <Redirect to="/login" /> : null}
+                {state.signedIn ? <Redirect to="/profile" /> : null}
               </div>
             </form>
           </div>

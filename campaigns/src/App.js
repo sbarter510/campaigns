@@ -19,7 +19,8 @@ import Sliders from "./components/Index/Sliders/Sliders";
 import InfluenceSlider from "./components/Index/Sliders/InfluenceSlider";
 import Influencer from "./components/Influencer/Influencer";
 import Signup from "./components/Signup/Signup";
-import NetworksBar from "./components/Index/NetworksBar";
+import Profile from "./components/Profile/Profile";
+import Login from "./components/Login/Login";
 
 //React Router Dom elements
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -61,6 +62,12 @@ function App() {
             </Route>
             <Route exact path="/signup">
               <Signup />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/profile">
+              <Profile />
             </Route>
           </Switch>
         </div>
