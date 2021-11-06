@@ -9,7 +9,7 @@ export default function InfluencerResult(props) {
         style={{ height: "250px", borderRadius: "25px" }}
         className="center"
       />
-      <p className="flow-text center">{props.quote}</p>
+      <p className="flow-text center black-text">{props.quote}</p>
     </div>
   );
 }

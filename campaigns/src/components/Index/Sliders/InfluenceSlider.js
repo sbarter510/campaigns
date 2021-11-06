@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import M from "materialize-css/dist/js/materialize.min";
+import "./slider.css";
 
 export default function InfluenceSlider() {
   useEffect(() => {
@@ -11,10 +12,10 @@ export default function InfluenceSlider() {
     <div className="container" style={{ marginTop: "100px" }}>
       <div className="row">
         <div className="col s12 m6">
-          <h1 className="text-content">
+          <h1 className="slider-text-content purple-text">
             Make money promoting products you love!
           </h1>
-          <p className="text-content">
+          <p className="slider-text-content">
             We match you with companies selling the products you're passionate
             about. Whether it be fashion, technology, home decor we connect you
             with the right products for your audience.
@@ -77,7 +78,6 @@ export default function InfluenceSlider() {
             </div>
           </div>
         </div>
-        {/* <div className="col s12 m4"></div> */}
       </div>
     </div>
   );

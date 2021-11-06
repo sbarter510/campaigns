@@ -69,8 +69,8 @@ export default function Sliders() {
           </div>
         </div>
         <div className="col s12 m6">
-          <h1 className="text-content">Why Gravity?</h1>
-          <p className="text-content">
+          <h1 className="slider-text-content purple-text">Why Gravity?</h1>
+          <p className="slider-text-content">
             Pay only for the traffic that ends up on your website. We match you
             with the appropriate infuencer for your product to increase chances
             of succesful clicks. We provide a customized link that ensures your

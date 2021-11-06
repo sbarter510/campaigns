@@ -31,8 +31,8 @@ export default function InfluencerResults() {
             alt=""
             class="circle"
           />
-          <span class="title">{result.name}</span>
-          <p>
+          <span class="title black-text">{result.name}</span>
+          <p className="black-text">
             {result.company.name} <br />
             {result.company.bs}
           </p>

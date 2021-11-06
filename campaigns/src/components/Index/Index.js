@@ -21,7 +21,7 @@ export default function Index() {
         </div>
 
         <div className="row">
-          <div className="col s12 m4">
+          <div className="col s12 m2">
             <Link to="/business">
               <button class="waves-effect waves-light btn-large hoverable">
                 Advertiser
@@ -29,7 +29,7 @@ export default function Index() {
             </Link>
           </div>
 
-          <div className="col s12 m8">
+          <div className="col s12 m10">
             <Link to="/influencer">
               <button class="waves-effect waves-light btn-large hoverable">
                 Influencer
