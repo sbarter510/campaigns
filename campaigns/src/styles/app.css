@@ -1,0 +1,47 @@
+/* #232E3C   dark
+#374659      |
+#6091C2      |
+#ACCDF0     |
+#E1EBF5    light     */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Archivo Black", sans-serif;
+  font-family: "Dosis", sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  color: white;
+}
+
+html {
+  height: 100%;
+}
+
+.headline {
+  font-family: "Dosis";
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#navbar {
+  font-family: "Dosis", sans-serif;
+}
+
+.material-icons {
+  cursor: pointer;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
+  font-weight: 600;
+}
