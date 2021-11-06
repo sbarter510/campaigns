@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import M from "materialize-css/dist/js/materialize.min";
-import Search from "./Search";
 import InfluencerResults from "./InfluencerResults";
-import Sidebar from "./Sidebar";
+import BusinessSidebar from "./BusinessSideBar/BusinessSidebar";
 
 export default function Business() {
   useEffect(() => {
@@ -10,7 +9,7 @@ export default function Business() {
   });
   return (
     <div class="row flex">
-      <Sidebar />
+      <BusinessSidebar />
       <InfluencerResults />
     </div>
   );

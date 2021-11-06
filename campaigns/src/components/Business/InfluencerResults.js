@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState, useCallback } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../context/context";
 import axios from "axios";
 import InfluencerResult from "./InfluencerResult";
 
 export default function InfluencerResults() {
-  const [state, dispatch] = useContext(Context);
+  // const [state, dispatch] = useContext(Context);
 
   const [influencerResults, setInfluencerResults] = useState([]);
   const [selectedInfluencer, setSelectedInfluencer] = useState(null);
