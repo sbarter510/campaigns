@@ -20,33 +20,6 @@ export default function Index() {
           </div>
         </div>
 
-<<<<<<< HEAD
-      <div className="row">
-        <div className="col s12 m2">
-          <Link to="/business">
-            <button
-              class="waves-effect waves-light btn-large hoverable cyan lighten-1"
-              style={{
-                marginBottom: "20px",
-                marginRight: "10px",
-                borderRadius: "50px",
-              }}
-            >
-              Advertiser
-            </button>
-          </Link>
-        </div>
-
-        <div className="col s12 m10">
-          <Link to="/influencer">
-            <button
-              class="waves-effect waves-light btn-large hoverable cyan lighten-1"
-              style={{ marginBottom: "20px", borderRadius: "50px" }}
-            >
-              Influencer
-            </button>
-          </Link>
-=======
         <div className="row">
           <div className="col s12 m2">
             <Link to="/business">
@@ -63,7 +36,6 @@ export default function Index() {
               </button>
             </Link>
           </div>
->>>>>>> purple
         </div>
       </div>
     </div>

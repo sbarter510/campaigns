@@ -47,18 +47,10 @@ function App() {
           <Switch>
             <Route exact path="/">
               {/* This is the div where animated background is placed. Index Only. */}
-<<<<<<< HEAD
-              <div ref={vantaElementRef}>
-                <Index />
-              </div>
-              <NetworksBar />
-              <Slider />
-=======
 
               <Index />
 
               <Sliders />
->>>>>>> purple
               <InfluenceSlider />
             </Route>
             <Route exact path="/business">
