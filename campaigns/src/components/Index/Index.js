@@ -20,6 +20,7 @@ export default function Index() {
           </div>
         </div>
 
+
         <div className="row">
           <div className="col s12 m2">
             <Link to="/business">
@@ -36,6 +37,7 @@ export default function Index() {
               </button>
             </Link>
           </div>
+
         </div>
       </div>
     </div>

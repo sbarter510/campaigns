@@ -19,6 +19,7 @@ import Sliders from "./components/Index/Sliders/Sliders";
 import InfluenceSlider from "./components/Index/Sliders/InfluenceSlider";
 import Influencer from "./components/Influencer/Influencer";
 import Signup from "./components/Signup/Signup";
+import NetworksBar from "./components/Index/NetworksBar";
 
 //React Router Dom elements
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -47,9 +48,13 @@ function App() {
             <Route exact path="/">
               {/* This is the div where animated background is placed. Index Only. */}
 
+
               <Index />
 
               <Sliders />
+
+              
+
               <InfluenceSlider />
             </Route>
             <Route exact path="/business">
