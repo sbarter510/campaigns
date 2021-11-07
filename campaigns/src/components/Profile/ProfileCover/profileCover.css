@@ -1,13 +1,13 @@
 #cover-wrapper {
   display: flex;
-  background-color: blue;
+
   height: 50vh;
   width: 100%;
 }
 
 #cover-container {
   display: flex-box;
-  background-color: purple;
+
   height: 100%;
   width: 100%;
 }
@@ -15,7 +15,9 @@
 #cover-photo-wrapper {
   height: 60%;
   width: 100%;
-  background-color: red;
+  background-image: url("https://lorempixel.com/450/450/nature/3");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #cover-photo-button {
@@ -50,8 +52,26 @@
   bottom: 50px;
 }
 
-@media screen(max-width: 600px) {
+/* @media screen(max-width: 600px) {
   #profile-row {
     align-items: "center";
+  }
+} */
+
+@media (max-width: 600px) {
+  #name-edit-row {
+    position: relative;
+    bottom: 125px;
+  }
+}
+
+@media (max-width: 600px) {
+  #name-edit-on-small-row {
+    position: relative;
+    bottom: 135px;
+  }
+
+  .col.s12 > .btn {
+    width: 60%;
   }
 }

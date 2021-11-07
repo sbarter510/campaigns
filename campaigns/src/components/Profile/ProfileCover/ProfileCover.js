@@ -16,7 +16,6 @@ export default function ProfileCover(props) {
       <div className="container">
         <div id="cover-container">
           <div id="cover-photo-wrapper">
-            {/* add image here */}
             <a
               id="cover-photo-button"
               class="btn-floating btn-medium waves-effect waves-light teal right"
@@ -35,7 +34,7 @@ export default function ProfileCover(props) {
             </div>
 
             <div className="col s12 m9 l9">
-              <div className="row valign-wrapper">
+              <div id="name-edit-row" className="row valign-wrapper">
                 <div className="col s12 m4 l3">
                   <h3 className="black-text center">{props.userName}</h3>
                 </div>
@@ -55,7 +54,7 @@ export default function ProfileCover(props) {
               </div>
 
               <div className="hide-on-med-and-up">
-                <div className="row">
+                <div id="name-edit-on-small-row" className="row">
                   <div className="col s12 center">
                     <a
                       id="edit-button"
