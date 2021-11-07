@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { Context } from "../../context/context";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
+import ProfileCover from "./ProfileCover/ProfileCover";
 
 axios.defaults.headers.common["Authorization"] =
   "Bearer " + localStorage.getItem("token");
@@ -24,10 +26,10 @@ export default function Profile() {
   //need to verify token and only display if valid
   return (
     <div>
-      {localStorage.getItem("token") ? (
-        <h1 className="black-text">Hello {state.userName} </h1>
+      {state.userName ? (
+        <ProfileCover userName={state.userName} />
       ) : (
-        "no token"
+        <Redirect to="/login" />
       )}
     </div>
   );
