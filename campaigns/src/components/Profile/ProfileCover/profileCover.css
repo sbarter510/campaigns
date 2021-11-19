@@ -71,6 +71,7 @@
     bottom: 135px;
   }
 
+  /* makes edit profile button larger on small devices */
   .col.s12 > .btn {
     width: 60%;
   }
