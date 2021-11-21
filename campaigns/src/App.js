@@ -21,14 +21,13 @@ import Influencer from "./components/Influencer/Influencer";
 import Signup from "./components/Signup/Signup";
 import Profile from "./components/Profile/Profile";
 import Login from "./components/Login/Login";
+import Logout from "./components/Logout/Logout";
 
 //React Router Dom elements
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const initialState = {
   signedIn: false,
-  businessUser: false,
-  influenceUser: false,
 };
 
 function App() {
@@ -65,6 +64,9 @@ function App() {
             </Route>
             <Route exact path="/login">
               <Login />
+            </Route>
+            <Route exact path="/logout">
+              <Logout />
             </Route>
             <Route exact path="/profile">
               <Profile />
