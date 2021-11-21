@@ -13,6 +13,7 @@ import {
   uploadBytesResumable,
   uploadBytes,
   ref,
+  getDownloadURL,
 } from "@firebase/storage";
 // import app from "../firebase/firebase";
 
@@ -40,16 +41,15 @@ export default function useStorage(file) {
       .catch((err) => {
         console.log(file.name, file.type);
         console.log(err.message);
+      })
+      .finally(() => {
+        getDownloadURL(imageRef)
+          .then((url) => {
+            console.log(url);
+            setUrl(url);
+          })
+          .catch((e) => console.log(e));
       });
-    // () => {
-    //   storageRef
-    //     .getDownloadURL()
-    //     .then((url) => {
-    //       console.log(url);
-    //       setUrl(url);
-    //     })
-    //     .catch((e) => console.log(e));
-    // };
-  }, [file, progress, url]);
+  }, []);
   return { progress, url };
 }

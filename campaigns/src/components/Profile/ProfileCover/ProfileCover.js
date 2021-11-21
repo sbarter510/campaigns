@@ -1,70 +1,77 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./profileCover.css";
+import useStorage from "../../../hooks/useStorage";
+import M from "materialize-css/dist/js/materialize.min.js";
+import CoverPhotoModal from "../CoverPhotoModal/CoverPhotoModal";
+import { Context } from "../../../context/context";
 
 export default function ProfileCover(props) {
+  const [state, dispatch] = useContext(Context);
+  // const [file, setFile] = useState(null);
+  // const [coverPhoto, setCoverPhoto] = useState(null);
+
+  // const { progress, url } = useStorage(file);
+
+  // useEffect(() => {
+  //   setCoverPhoto(url);
+  // }, [url]);
+
+  useEffect(() => {
+    var elems = document.querySelectorAll(".modal");
+    var instances = M.Modal.init(elems, {});
+  });
+
+  // const uploadCoverPhotoHandler = (e) => {
+  //   e.preventDefault();
+  //   const types = ["image/jpeg", "image/png"];
+  //   let img = e.target.files[0];
+  //   if (img && types.includes(img.type)) {
+  //     setFile(img);
+  //   } else {
+  //     console.log("Not a image");
+  //   }
+  // };
+
   return (
     <div id="cover-wrapper">
-      {window.addEventListener(
-        "resize",
-        () => {
-          const element = document.getElementById("profile-row");
-          console.log(element);
-          element.classList.add("center");
-        },
-        true
-      )}
       <div className="container">
+        <CoverPhotoModal />
         <div id="cover-container">
-          <div id="cover-photo-wrapper">
+          <div
+            id="cover-photo-wrapper"
+            style={{ backgroundImage: `url(${state.coverPhoto})` }}
+          >
             <a
               id="cover-photo-button"
-              class="btn-floating btn-medium waves-effect waves-light teal right"
+              data-target="edit-cover-photo-modal"
+              className="btn-floating btn-medium modal-trigger waves-effect waves-light teal right"
             >
-              <i class="material-icons">add</i>
+              <i className="material-icons">add</i>
             </a>
           </div>
 
-          <div className="row" style={{ height: "30%" }}>
-            <div id="profile-row" className="col s12 m3 l3">
-              <img
-                id="profile-pic"
-                className="circle"
-                src="https://lorempixel.com/250/250/people/3"
-              />
+          <div className="row">
+            <div className="col s12 m2">
+              <div className="center">
+                <img
+                  id="profile-pic"
+                  className="circle"
+                  src="http://lorempixel.com/200/200/people/1"
+                  alt="cover photo"
+                />
+              </div>
             </div>
 
-            <div className="col s12 m9 l9">
-              <div id="name-edit-row" className="row valign-wrapper">
-                <div className="col s12 m4 l3">
-                  <h3 className="black-text center">{props.userName}</h3>
-                </div>
+            <div id="username-display" className="col s12 m7">
+              <h3 id="username-text" className="black-text center">
+                {props.userName}
+              </h3>
+            </div>
 
-                <div
-                  id="profile-edit-wrap"
-                  className="col s12 m8 l9 hide-on-small-only right-align"
-                  style={{ height: "100%" }}
-                >
-                  <a
-                    id="edit-button"
-                    class="waves-effect waves-light btn circle"
-                  >
-                    Edit Profile
-                  </a>
-                </div>
-              </div>
-
-              <div className="hide-on-med-and-up">
-                <div id="name-edit-on-small-row" className="row">
-                  <div className="col s12 center">
-                    <a
-                      id="edit-button"
-                      class="waves-effect waves-light btn circle"
-                    >
-                      Edit Profile
-                    </a>
-                  </div>
-                </div>
-              </div>
+            <div id="edit-profile-button" className="col s12 m3 center">
+              <a className="btn-large waves-effect waves-light teal center">
+                edit profile
+              </a>
             </div>
           </div>
         </div>
@@ -72,7 +79,3 @@ export default function ProfileCover(props) {
     </div>
   );
 }
-
-// window.screen.height;
-// window.screen.width;
-// element.classList.add("my-class");

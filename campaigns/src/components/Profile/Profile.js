@@ -24,29 +24,20 @@ export default function Profile() {
       .catch((err) => console.log(err));
   }, [dispatch]);
 
-  const [file, setFile] = useState(null);
-
-  const uploadHandler = (e) => {
-    e.preventDefault();
-    const types = ["image/jpeg", "image/png"];
-    let img = e.target.files[0];
-    if (img && types.includes(img.type)) {
-      setFile(img);
-    } else {
-      console.log("Not a image");
-    }
-  };
-
   //need to verify token and only display if valid
   return (
     <div>
       {state.userName ? (
         <>
-          <ProfileCover userName={state.userName} />
-          <form method="POST">
+          <ProfileCover
+            userName={state.userName}
+            userImage={null}
+            coverPhoto={state.coverPhoto}
+          />
+          {/* <form method="POST">
             <input type="file" onChange={(e) => uploadHandler(e)}></input>
-          </form>
-          {file && <ProgressBar file={file} />}
+          </form> */}
+          {/* {file && <ProgressBar file={file} />} */}
         </>
       ) : (
         <Redirect to="/login" />

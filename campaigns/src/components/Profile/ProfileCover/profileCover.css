@@ -1,21 +1,13 @@
-#cover-wrapper {
-  display: flex;
-
-  height: 50vh;
-  width: 100%;
-}
-
 #cover-container {
   display: flex-box;
 
-  height: 100%;
+  height: 500px;
   width: 100%;
 }
 
 #cover-photo-wrapper {
   height: 60%;
   width: 100%;
-  background-image: url("https://lorempixel.com/450/450/nature/3");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -26,53 +18,66 @@
   top: 80%;
 }
 
+/* #profile-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 200px;
+  width: 100%;
+  justify-content: space-around;
+} */
+
 #profile-pic {
   position: relative;
-  border: 2px solid grey;
+  border: 2px solid rgb(219, 197, 197);
   height: 200px;
   width: 200px;
   bottom: 100px;
 }
 
-/* #profile-edit-wrap {
-  height: 100%;
-  display: flex-box;
+/* #username-text {
+  line-height: 200px;
 } */
 
-#profile-photo-button {
+#edit-profile-button {
+  margin-top: 20px;
+}
+
+/* #username-display {
+  flex: 6;
+}
+
+#profile-edit-button {
+  flex: 6;
+} */
+
+/* #profile-photo-button {
   position: relative;
   border: 2px solid grey;
   right: 10%;
   top: 45px;
-}
+} */
 
-#edit-profile-button {
-  position: relative;
+/* #edit-profile-button {
+  justify-content: center;
+} */
 
-  bottom: 50px;
-}
-
-/* @media screen(max-width: 600px) {
+/* @media (max-width: 600px) {
   #profile-row {
-    align-items: "center";
+    justify-content: center;
   }
 } */
 
 @media (max-width: 600px) {
-  #name-edit-row {
+  #username-display {
     position: relative;
-    bottom: 125px;
+    bottom: 100px;
   }
 }
 
 @media (max-width: 600px) {
-  #name-edit-on-small-row {
+  #edit-profile-button {
     position: relative;
-    bottom: 135px;
-  }
-
-  /* makes edit profile button larger on small devices */
-  .col.s12 > .btn {
-    width: 60%;
+    bottom: 100px;
   }
 }
