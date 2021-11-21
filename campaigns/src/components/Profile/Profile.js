@@ -5,14 +5,10 @@ import { Redirect } from "react-router-dom";
 import ProfileCover from "./ProfileCover/ProfileCover";
 import ProgressBar from "../ProgressBar/ProgressBar";
 
-//right place??
-axios.defaults.headers.common["Authorization"] =
-  "Bearer " + localStorage.getItem("token");
-
 export default function Profile() {
   const [state, dispatch] = useContext(Context);
 
-  const [profile, setProfile] = useState({});
+  const [profile, setProfile] = useState();
   const [loading, setLoading] = useState("");
 
   useEffect(() => {
@@ -46,10 +42,13 @@ export default function Profile() {
     <div>
       {state.userName ? (
         <>
-          <ProfileCover
-            userName={state.userName}
-            coverPhotoURL={profile ? profile.coverPhotoURL : null}
-          />
+          {profile ? (
+            <ProfileCover
+              userName={state.userName}
+              coverPhotoURL={profile ? profile.coverPhotoURL : null}
+            />
+          ) : null}
+
           {/* <form method="POST">
             <input type="file" onChange={(e) => uploadHandler(e)}></input>
           </form> */}
