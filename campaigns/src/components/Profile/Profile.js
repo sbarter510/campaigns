@@ -4,12 +4,13 @@ import axios from "axios";
 import { Redirect } from "react-router-dom";
 import ProfileCover from "./ProfileCover/ProfileCover";
 import ProgressBar from "../ProgressBar/ProgressBar";
+import ProfileContent from "./ProfileContent/ProfileContent";
 
 export default function Profile() {
   const [state, dispatch] = useContext(Context);
 
   const [profile, setProfile] = useState();
-  const [loading, setLoading] = useState("");
+  const [edited, setEdited] = useState("");
 
   useEffect(() => {
     axios
@@ -28,35 +29,36 @@ export default function Profile() {
       .get("http://localhost:5000/user/profile")
       .then((res) => {
         console.log(res);
-        return setProfile(res.data);
+        return setProfile(() => res.data);
       })
       .catch((err) => console.log(err));
 
     return () => {
-      setProfile({});
+      setProfile((prevProfile) => {
+        return { ...prevProfile, coverPhotoURL: "" };
+      });
     };
-  }, []);
+  }, [edited]);
 
   //need to verify token and only display if valid
   return (
-    <div>
+    <>
       {state.userName ? (
         <>
           {profile ? (
-            <ProfileCover
-              userName={state.userName}
-              coverPhotoURL={profile ? profile.coverPhotoURL : null}
-            />
+            <div className="container">
+              <ProfileCover
+                userName={state.userName}
+                coverPhotoURL={profile ? profile.coverPhotoURL : null}
+                setEdited={setEdited}
+              />
+              <ProfileContent />
+            </div>
           ) : null}
-
-          {/* <form method="POST">
-            <input type="file" onChange={(e) => uploadHandler(e)}></input>
-          </form> */}
-          {/* {file && <ProgressBar file={file} />} */}
         </>
       ) : (
         <Redirect to="/login" />
       )}
-    </div>
+    </>
   );
 }

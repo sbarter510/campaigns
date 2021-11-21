@@ -8,6 +8,8 @@ import axios from "axios";
 export default function Login() {
   const [state, dispatch] = useContext(Context);
   const [email, setEmail] = useState("");
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
   useEffect(() => {
     M.updateTextFields();
@@ -59,9 +61,6 @@ export default function Login() {
     //   })
     //   .catch((e) => console.log(e));
   };
-
-  const emailRef = useRef();
-  const passwordRef = useRef();
 
   return (
     <div className="row" style={{ margin: "8vh auto" }}>

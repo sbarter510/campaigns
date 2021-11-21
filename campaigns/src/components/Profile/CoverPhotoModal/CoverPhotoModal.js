@@ -3,7 +3,7 @@ import ProgressBar from "../../ProgressBar/ProgressBar";
 import { Context } from "../../../context/context";
 import axios from "axios";
 
-export default function CoverPhotoModal() {
+export default function CoverPhotoModal(props) {
   const [file, setFile] = useState(null);
 
   const [state, dispatch] = useContext(Context);
@@ -55,7 +55,11 @@ export default function CoverPhotoModal() {
       </div>
       {file && <ProgressBar file={file} />}
       <div class="modal-footer">
-        <a href="#!" className="modal-close waves-effect waves-green btn">
+        <a
+          href="#!"
+          className="modal-close waves-effect waves-green btn"
+          onClick={props.setEdited(true)}
+        >
           Done
         </a>
       </div>

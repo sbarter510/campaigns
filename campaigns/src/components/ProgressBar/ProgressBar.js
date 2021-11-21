@@ -25,16 +25,14 @@ export default function ProgressBar(props) {
   }, [url]);
 
   return (
-    <>
-      <div
-        className="progress-bar"
-        style={{
-          height: "20px",
-          backgroundColor: "grey",
-          width: { progress } + "%",
-        }}
-      ></div>
-      {/* <h2>{url && url}</h2> */}
-    </>
+    <div
+      className="progress-bar"
+      style={{
+        height: "20px",
+        backgroundColor: "grey",
+        width: { progress } + "%",
+        transition: "width 2s",
+      }}
+    ></div>
   );
 }

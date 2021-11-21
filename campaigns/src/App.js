@@ -1,6 +1,7 @@
 import { useReducer, useRef, useEffect, useState } from "react";
 import { Context } from "./context/context";
 import { appReducer } from "./context/reducer";
+import axios from "axios";
 import "materialize-css/dist/css/materialize.min.css";
 
 import bgImg from "./static/purp.jpg";
@@ -17,7 +18,6 @@ import Signup from "./components/Signup/Signup";
 import Profile from "./components/Profile/Profile";
 import Login from "./components/Login/Login";
 import Logout from "./components/Logout/Logout";
-import axios from "axios";
 
 //React Router Dom elements
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -43,6 +43,7 @@ function App() {
         {/* TODO: figure out a way to store darkmode settings in CSS. Class based? */}
         <div className="App">
           <Header />
+
           <Switch>
             <Route exact path="/">
               {/* This is the div where animated background is placed. Index Only. */}

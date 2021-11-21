@@ -7,11 +7,10 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Archivo Black", sans-serif;
-  font-family: "Dosis", sans-serif;
-  font-family: "Roboto", sans-serif;
+  font-family: Dosis, Roboto sans-serif;
+
   font-weight: 600;
-  color: white;
+  box-sizing: border-box;
 }
 
 html {
@@ -22,10 +21,10 @@ html {
   font-family: "Dosis";
 }
 
-.flex {
+/* .flex {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
 #navbar {
   font-family: "Dosis", sans-serif;
@@ -35,7 +34,7 @@ html {
   cursor: pointer;
 }
 
-p,
+/* p,
 h1,
 h2,
 h3,
@@ -44,4 +43,4 @@ h5,
 h6 {
   color: white;
   font-weight: 600;
-}
+} */

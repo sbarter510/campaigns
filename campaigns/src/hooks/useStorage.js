@@ -32,20 +32,18 @@ export default function useStorage(file) {
     console.log(file);
     // const storageRef = storage.ref(`images/${file.name}`);
     // storageRef.put(file).then(
-    uploadBytes(imageRef, file, { contentType: file.type })
+    uploadBytesResumable(imageRef, file, { contentType: file.type })
       .then((snap) => {
         console.log("uploading");
         let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
         setProgress(percentage);
       })
       .catch((err) => {
-        console.log(file.name, file.type);
         console.log(err.message);
       })
       .finally(() => {
         getDownloadURL(imageRef)
           .then((url) => {
-            console.log(url);
             setUrl(url);
           })
           .catch((e) => console.log(e));
