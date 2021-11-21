@@ -3,11 +3,6 @@ import { Context } from "./context/context";
 import { appReducer } from "./context/reducer";
 import "materialize-css/dist/css/materialize.min.css";
 
-import M from "materialize-css/dist/js/materialize.min";
-
-import RINGS from "vanta/dist/vanta.rings.min";
-import * as THREE from "three/build/three";
-
 import bgImg from "./static/purp.jpg";
 
 //compoenents
@@ -22,6 +17,7 @@ import Signup from "./components/Signup/Signup";
 import Profile from "./components/Profile/Profile";
 import Login from "./components/Login/Login";
 import Logout from "./components/Logout/Logout";
+import axios from "axios";
 
 //React Router Dom elements
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -31,6 +27,9 @@ const initialState = {
 };
 
 function App() {
+  //right place??
+  axios.defaults.headers.common["Authorization"] =
+    "Bearer " + localStorage.getItem("token");
   const [state, dispatch] = useReducer(appReducer, initialState);
 
   //!!Important. All text must be classed "text-content" in order to be toggled off and on with dark mode

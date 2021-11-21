@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import useStorage from "../../hooks/useStorage";
 import { Context } from "../../context/context";
+import axios from "axios";
 
 export default function ProgressBar(props) {
   //need to add new profile picture url to database so that next time they load no request needed
@@ -8,7 +9,19 @@ export default function ProgressBar(props) {
   const { progress, url } = useStorage(props.file);
 
   useEffect(() => {
-    dispatch({ type: "SET_COVER_PHOTO", payload: url });
+    axios
+      .post("http://localhost:5000/user/changecoverphoto", {
+        userName: state.userName,
+        coverPhotoURL: url,
+      })
+      .then((res) => {
+        console.log(res);
+        dispatch({
+          type: "CHANGE_COVER_PHOTO",
+          payload: url,
+        });
+      })
+      .catch((e) => console.log(e));
   }, [url]);
 
   return (

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext, useState } from "react";
 import { Context } from "../../context/context";
 import { Redirect } from "react-router-dom";
 
@@ -7,14 +7,14 @@ import axios from "axios";
 
 export default function Login() {
   const [state, dispatch] = useContext(Context);
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     M.updateTextFields();
   });
 
-  const handleUserSubmit = async (e) => {
-    e.preventDefault();
-    await axios
+  useEffect(() => {
+    axios
       .post("http://localhost:5000/user/login", {
         email: emailRef.current.value,
         password: passwordRef.current.value,
@@ -23,13 +23,41 @@ export default function Login() {
         if (res.data.userName) {
           //add jwt token to local storage
           localStorage.setItem("token", res.data.token);
-          return dispatch({ type: "LOG_IN", payload: res.data.userName });
+          return dispatch({
+            type: "LOG_IN",
+            payload: res.data.userName,
+          });
         } else {
           console.log(res.data);
           throw new Error((e) => res.data.msg);
         }
       })
       .catch((e) => console.log(e));
+  }, [email, dispatch]);
+
+  const handleUserSubmit = (e) => {
+    e.preventDefault();
+    return setEmail(emailRef.current.value);
+    // e.preventDefault();
+    // await axios
+    //   .post("http://localhost:5000/user/login", {
+    //     email: emailRef.current.value,
+    //     password: passwordRef.current.value,
+    //   })
+    //   .then((res) => {
+    //     if (res.data.userName) {
+    //       //add jwt token to local storage
+    //       localStorage.setItem("token", res.data.token);
+    //       return dispatch({
+    //         type: "LOG_IN",
+    //         payload: res.data.userName,
+    //       });
+    //     } else {
+    //       console.log(res.data);
+    //       throw new Error((e) => res.data.msg);
+    //     }
+    //   })
+    //   .catch((e) => console.log(e));
   };
 
   const emailRef = useRef();

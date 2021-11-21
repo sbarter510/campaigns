@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ProgressBar from "../../ProgressBar/ProgressBar";
+import { Context } from "../../../context/context";
+import axios from "axios";
 
 export default function CoverPhotoModal() {
   const [file, setFile] = useState(null);
+
+  const [state, dispatch] = useContext(Context);
 
   const uploadCoverPhotoHandler = (e) => {
     e.preventDefault();
@@ -14,6 +18,19 @@ export default function CoverPhotoModal() {
       console.log("Not a image");
     }
   };
+
+  // useEffect(() => {
+  //   axios
+  //     .post("http://localhost:5000/user/changecoverphoto", {userName: state.userName, coverPhotoURL: url})
+  //     .then((res) => {
+  //       console.log(res);
+  //       dispatch({
+  //         type: "CHANGE_COVER_PHOTO",
+  //         payload: res.data.coverPhotoURL,
+  //       });
+  //     })
+  //     .catch((err) => console.log(err));
+  // });
 
   return (
     <div id="edit-cover-photo-modal" class="modal">

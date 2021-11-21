@@ -9,6 +9,7 @@ export default function Logout() {
     dispatch({ type: "LOGOUT" });
     localStorage.removeItem("token");
   };
+
   return (
     <div className="row" style={{ margin: "8vh auto" }}>
       <div className="col s12 m6 offset-m3 center">

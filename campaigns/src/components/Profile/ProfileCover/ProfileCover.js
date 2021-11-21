@@ -39,7 +39,7 @@ export default function ProfileCover(props) {
         <div id="cover-container">
           <div
             id="cover-photo-wrapper"
-            style={{ backgroundImage: `url(${state.coverPhoto})` }}
+            style={{ backgroundImage: `url("${props.coverPhotoURL}")` }}
           >
             <a
               id="cover-photo-button"
