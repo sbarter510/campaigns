@@ -8,7 +8,7 @@
   height: 300px;
   width: 100%;
   background-repeat: no-repeat;
-  background-size: stretch;
+  background-size: cover;
   background-position: center;
 }
 
