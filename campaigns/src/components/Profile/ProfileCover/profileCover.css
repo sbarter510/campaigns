@@ -18,21 +18,30 @@
   top: 80%;
 }
 
-/* #profile-row {
+#profile-row {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  height: 200px;
+  height: 100px;
   width: 100%;
   justify-content: space-around;
-} */
-
+}
+#profile-photo-container {
+  position: relative;
+}
 #profile-pic {
   position: relative;
   border: 2px solid rgb(219, 197, 197);
-  height: 200px;
-  width: 200px;
   bottom: 100px;
+  right: 50px;
+  width: 200px;
+  height: 200px;
+}
+
+#profile-photo-button {
+  position: absolute;
+  right: 130px;
+  top: 50px;
 }
 
 /* #username-text {
@@ -62,13 +71,13 @@
   justify-content: center;
 } */
 
-/* @media (max-width: 600px) {
+@media (max-width: 600px) {
   #profile-row {
     justify-content: center;
   }
-} */
+}
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
   #username-display {
     position: relative;
     bottom: 100px;
@@ -80,4 +89,4 @@
     position: relative;
     bottom: 100px;
   }
-}
+} */

@@ -10,6 +10,8 @@ export const appReducer = (state, action) => {
       return { ...state, signedIn: false, userName: null, coverPhoto: null };
     case "CHANGE_COVER_PHOTO":
       return { ...state, coverPhoto: action.payload };
+    case "CHANGE_PROFILE_PHOTO":
+      return { ...state, profilePhoto: action.payload };
     default:
       return state;
   }

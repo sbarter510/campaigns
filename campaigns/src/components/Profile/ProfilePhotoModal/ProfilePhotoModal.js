@@ -1,39 +1,25 @@
 import React, { useState, useEffect, useContext } from "react";
-import ProgressBar from "../../ProgressBar/ProgressBar";
+import ProfilePhotoProgressBar from "./ProfilePhotoProgressBar";
 import { Context } from "../../../context/context";
-import axios from "axios";
 
-export default function CoverPhotoModal(props) {
-  const [file, setFile] = useState(null);
+export default function ProfilePhotoModal(props) {
+  const [profileFile, setProfileFile] = useState(null);
 
   const [state, dispatch] = useContext(Context);
 
-  const uploadCoverPhotoHandler = (e) => {
+  const uploadProfilePhotoHandler = (e) => {
     e.preventDefault();
     const types = ["image/jpeg", "image/png"];
     let img = e.target.files[0];
     if (img && types.includes(img.type)) {
-      setFile(img);
+      setProfileFile(img);
     } else {
       console.log("Not a image");
     }
   };
 
-  // useEffect(() => {
-  //   axios
-  //     .post("http://localhost:5000/user/changecoverphoto", {userName: state.userName, coverPhotoURL: url})
-  //     .then((res) => {
-  //       console.log(res);
-  //       dispatch({
-  //         type: "CHANGE_COVER_PHOTO",
-  //         payload: res.data.coverPhotoURL,
-  //       });
-  //     })
-  //     .catch((err) => console.log(err));
-  // });
-
   return (
-    <div id="edit-cover-photo-modal" class="modal">
+    <div id="edit-profile-photo-modal" class="modal">
       <div class="modal-content">
         <h4 className="black-text center">Choose your picture</h4>
         <form action="#">
@@ -43,7 +29,7 @@ export default function CoverPhotoModal(props) {
               <input
                 type="file"
                 onChange={(e) => {
-                  uploadCoverPhotoHandler(e);
+                  uploadProfilePhotoHandler(e);
                 }}
               />
             </div>
@@ -53,7 +39,7 @@ export default function CoverPhotoModal(props) {
           </div>
         </form>
       </div>
-      {file && <ProgressBar file={file} />}
+      {profileFile && <ProfilePhotoProgressBar file={profileFile} />}
       <div class="modal-footer">
         <a href="#!" className="modal-close waves-effect waves-green btn">
           Done
