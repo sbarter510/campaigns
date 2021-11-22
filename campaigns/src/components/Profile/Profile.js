@@ -38,7 +38,7 @@ export default function Profile() {
         return { ...prevProfile, coverPhotoURL: "" };
       });
     };
-  }, [edited]);
+  }, []);
 
   //need to verify token and only display if valid
   return (
@@ -50,6 +50,7 @@ export default function Profile() {
               <ProfileCover
                 userName={state.userName}
                 coverPhotoURL={profile ? profile.coverPhotoURL : null}
+                profilePhotoURL={profile ? profile.profilePhotoURL : null}
                 setEdited={setEdited}
               />
               <ProfileContent />

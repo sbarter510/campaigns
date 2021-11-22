@@ -7,7 +7,7 @@ export default function ProfileContent() {
     var instances = M.Carousel.init(elems, {});
   });
   return (
-    <div className="row" style={{ position: "relative", bottom: "100px" }}>
+    <div className="row">
       <div className="col s12">
         <h2>About</h2>
         <hr></hr>

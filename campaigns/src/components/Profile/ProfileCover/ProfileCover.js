@@ -4,6 +4,7 @@ import useStorage from "../../../hooks/useStorage";
 import M from "materialize-css/dist/js/materialize.min.js";
 import CoverPhotoModal from "../CoverPhotoModal/CoverPhotoModal";
 import { Context } from "../../../context/context";
+import ProfilePhotoModal from "../ProfilePhotoModal/ProfilePhotoModal";
 
 export default function ProfileCover(props) {
   const [state, dispatch] = useContext(Context);
@@ -35,6 +36,7 @@ export default function ProfileCover(props) {
   return (
     <div id="cover-container">
       <CoverPhotoModal setEdited={props.setEdited} />
+      <ProfilePhotoModal />
       <div
         id="cover-photo-wrapper"
         style={{
@@ -54,13 +56,20 @@ export default function ProfileCover(props) {
 
       <div className="row">
         <div className="col s12 m4">
-          <div className="center">
+          <div className="center" id="profile-photo-container">
             <img
               id="profile-pic"
               className="circle"
-              src="http://lorempixel.com/200/200/people/1"
+              src={props.profilePhotoURL}
               alt="cover photo"
             />
+            <a
+              id="profile-photo-button"
+              data-target="edit-profile-photo-modal"
+              className="btn-floating btn-medium modal-trigger waves-effect waves-light teal"
+            >
+              <i className="material-icons">add</i>
+            </a>
           </div>
         </div>
 

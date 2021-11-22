@@ -108,6 +108,24 @@ router.post("/changecoverphoto", (req, res) => {
   });
 });
 
+//Profile picture route
+router.post("/changeprofilephoto", (req, res) => {
+  const userName = req.body.userName;
+  const profilePhotoURL = req.body.profilePhotoURL;
+
+  if (!userName || !profilePhotoURL) {
+    return res.json({ msg: "Something went wrong try again" });
+  }
+
+  User.updateOne({ userName }, { profilePhotoURL }).then((doc) => {
+    if (!doc) {
+      return res.json({ msg: "Something went wrong" });
+    }
+
+    return res.json(doc);
+  });
+});
+
 //adds jwt verifcation
 router.get("/auth", auth, (req, res) => {
   try {
