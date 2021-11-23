@@ -1,28 +1,41 @@
 import React, { useEffect } from "react";
 import M from "materialize-css/dist/js/materialize.min.js";
+import ProfilePhotoModal from "../ProfilePhotoModal/ProfilePhotoModal";
 
-export default function ProfileContent() {
+export default function ProfileContent(props) {
   useEffect(() => {
     var elems = document.querySelectorAll(".carousel");
     var instances = M.Carousel.init(elems, {});
   });
+
   return (
     <div className="row">
       <div className="col s12">
         <h2>About</h2>
         <hr></hr>
-        <p className="flow-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ullamcorper malesuada proin libero nunc. Facilisi morbi tempus iaculis
-          urna. Tellus in hac habitasse platea dictumst vestibulum. Pharetra sit
-          amet aliquam id diam maecenas ultricies mi eget. Donec enim diam
-          vulputate ut pharetra sit amet. Ornare arcu odio ut sem nulla pharetra
-          diam. Ullamcorper eget nulla facilisi etiam dignissim diam quis.
-          Pharetra magna ac placerat vestibulum. Bibendum at varius vel pharetra
-          vel turpis nunc. Sit amet massa vitae tortor condimentum lacinia quis.
-          Neque gravida in fermentum et sollicitudin.
-        </p>
+        {props.editing ? (
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea
+                    id="textarea1"
+                    class="materialize-textarea"
+                  ></textarea>
+                  <label
+                    for="textarea1"
+                    placeholder={props.editing ? props.profile : null}
+                  >
+                    Tell us about yourself
+                  </label>
+                </div>
+              </div>
+            </form>
+          </div>
+        ) : (
+          <p className="flow-text">{props.profile.userName}</p>
+        )}
+
         <hr />
       </div>
       <div className="row" style={{ height: "500px" }}>

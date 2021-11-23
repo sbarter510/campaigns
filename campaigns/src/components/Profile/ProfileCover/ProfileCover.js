@@ -33,9 +33,13 @@ export default function ProfileCover(props) {
   //   }
   // };
 
+  const editClickHandler = () => {
+    props.setEditing((prevState) => !prevState);
+  };
+
   return (
     <div id="cover-container">
-      <CoverPhotoModal setEdited={props.setEdited} />
+      <CoverPhotoModal />
       <ProfilePhotoModal />
       <div
         id="cover-photo-wrapper"
@@ -86,8 +90,11 @@ export default function ProfileCover(props) {
         </div>
 
         <div id="edit-profile-button" className="col s12 m3 center">
-          <a className="btn-large waves-effect waves-light teal center">
-            edit profile
+          <a
+            onClick={editClickHandler}
+            className="btn-large waves-effect waves-light teal center"
+          >
+            {!props.editing ? "edit profile" : "save changes"}
           </a>
         </div>
       </div>

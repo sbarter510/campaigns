@@ -10,7 +10,7 @@ export default function Profile() {
   const [state, dispatch] = useContext(Context);
 
   const [profile, setProfile] = useState();
-  const [edited, setEdited] = useState("");
+  const [editing, setEditing] = useState("");
 
   useEffect(() => {
     axios
@@ -51,9 +51,14 @@ export default function Profile() {
                 userName={state.userName}
                 coverPhotoURL={profile ? profile.coverPhotoURL : null}
                 profilePhotoURL={profile ? profile.profilePhotoURL : null}
-                setEdited={setEdited}
+                editing={editing}
+                setEditing={setEditing}
               />
-              <ProfileContent />
+              <ProfileContent
+                profile={profile}
+                editing={editing}
+                setEditing={setEditing}
+              />
             </div>
           ) : null}
         </>
