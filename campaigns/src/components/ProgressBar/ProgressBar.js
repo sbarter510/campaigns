@@ -16,7 +16,7 @@ export default function ProgressBar(props) {
       })
       .then((res) => {
         console.log(res);
-        dispatch({
+        return dispatch({
           type: "CHANGE_COVER_PHOTO",
           payload: url,
         });

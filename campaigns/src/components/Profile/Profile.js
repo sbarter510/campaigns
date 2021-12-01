@@ -11,6 +11,7 @@ export default function Profile() {
 
   const [profile, setProfile] = useState();
   const [editing, setEditing] = useState("");
+  const [editedCoverPhoto, setEditedCoverPhoto] = useState(false);
 
   useEffect(() => {
     axios
@@ -22,23 +23,36 @@ export default function Profile() {
         });
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     axios
       .get("http://localhost:5000/user/profile")
       .then((res) => {
         console.log(res);
-        return setProfile(() => res.data);
+        setProfile(() => res.data);
       })
       .catch((err) => console.log(err));
 
-    return () => {
-      setProfile((prevProfile) => {
-        return { ...prevProfile, coverPhotoURL: "" };
-      });
-    };
+    // return () => {
+    //   setProfile((prevProfile) => {
+    //     return { ...prevProfile, coverPhotoURL: "" };
+    //   });
+    // };
   }, []);
+
+  useEffect(() => {
+    if (profile) {
+      dispatch({
+        type: "CHANGE_COVER_PHOTO",
+        payload: profile.coverPhotoURL,
+      });
+      dispatch({
+        type: "CHANGE_PROFILE_PHOTO",
+        payload: profile.profilePhotoURL,
+      });
+    }
+  }, [profile]);
 
   //need to verify token and only display if valid
   return (
@@ -49,10 +63,11 @@ export default function Profile() {
             <div className="container">
               <ProfileCover
                 userName={state.userName}
-                coverPhotoURL={profile ? profile.coverPhotoURL : null}
-                profilePhotoURL={profile ? profile.profilePhotoURL : null}
+                coverPhotoURL={state.coverPhoto}
+                profilePhotoURL={state.profilePhoto}
                 editing={editing}
                 setEditing={setEditing}
+                setEditedCoverPhoto={setEditedCoverPhoto}
               />
               <ProfileContent
                 profile={profile}
